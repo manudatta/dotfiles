@@ -1,6 +1,5 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
-
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -11,6 +10,10 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tomasr/molokai'
 Plugin 'tpope/vim-surround'
+Bundle "tpope/vim-dispatch"
+Bundle "tpope/vim-surround"
+Bundle "tpope/vim-repeat"
+Bundle "tpope/vim-commentary"
 Bundle "myusuf3/numbers.vim"
 Bundle "Lokaltog/powerline", {'rtp': 'powerline/bindings/vim/'}
 Bundle "kien/rainbow_parentheses.vim"
@@ -266,3 +269,5 @@ endif
 " Odds n Ends
 set ttymouse=xterm2 " makes it work in everything
 let g:molokai_original = 1
+filetype plugin indent on  
+au FileType python setl commentstring="#\ %s"
