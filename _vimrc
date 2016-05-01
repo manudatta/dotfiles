@@ -10,6 +10,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tomasr/molokai'
+Plugin 'tpope/vim-surround'
 Bundle "myusuf3/numbers.vim"
 Bundle "Lokaltog/powerline", {'rtp': 'powerline/bindings/vim/'}
 Bundle "kien/rainbow_parentheses.vim"
