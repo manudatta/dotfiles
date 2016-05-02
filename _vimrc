@@ -15,6 +15,7 @@ end
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tomasr/molokai'
+Plugin 'tpope/vim-surround'
 Bundle "tpope/vim-dispatch"
 Bundle "tpope/vim-surround"
 Bundle "tpope/vim-repeat"

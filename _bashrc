@@ -140,7 +140,6 @@ if [ "$venwrap" != "" ]; then
     source $venwrap
 fi
 
-alias vim="emacs"
 
 parse_git_branch ()
 {
@@ -156,8 +155,8 @@ parse_svn_repository_root() {
   svn info 2>/dev/null | sed -ne 's#^Repository Root: ##p'
 }
 
-export EDITOR="emacs"
-export GIT_EDITOR="emacs"
+export EDITOR="vim"
+export GIT_EDITOR="vim"
 
 # Add git and svn branch names
 export PS1="$PS1\$(parse_git_branch)\$(parse_svn_branch) "
@@ -186,3 +185,14 @@ alias clean_pycs='find . -name "*.pyc" -exec rm {} \;'
 
 complete -F _complete_hosts ssh
 complete -F _complete_hosts host
+export PATH=${PATH}:${HOME}/bin
+export ERL_LIBS=${HOME}/lib/erlang/rabbit_common:${HOME}/lib/erlang/amqp_client
+
+alias ek='eclipse &'
+alias xterm='xterm -font -*-fixed-medium-r-*-*-18-*-*-*-*-*-iso8859-* -geometry 70x24'
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export PATH=${PATH}:${HOME}/bin
+export ERL_LIBS=${HOME}/lib/erlang/rabbit_common:${HOME}/lib/erlang/amqp_client
+source ~/.manu_bash_profile
+echo ".bashrc loaded"
