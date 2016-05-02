@@ -17,7 +17,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tomasr/molokai'
 Plugin 'tpope/vim-surround'
 Bundle "tpope/vim-dispatch"
-Bundle "tpope/vim-surround"
 Bundle "tpope/vim-repeat"
 Bundle "tpope/vim-commentary"
 Bundle "myusuf3/numbers.vim"
