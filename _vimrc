@@ -1,8 +1,14 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+let s:running_windows = has("win16") || has("win32") || has("win64")
+if s:running_windows
+  set rtp+=$HOME/vimfiles/bundle/Vundle.vim
+  call vundle#begin('$USERPROFILE/vimfiles/bundle/')
+else
+  set rtp+=~/.vim/bundle/Vundle.vim
+  call vundle#begin()
+end
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
@@ -58,7 +64,6 @@ filetype plugin indent on    " required
 
 
 " Startup
-    let s:running_windows = has("win16") || has("win32") || has("win64")
     let s:colorful_term = (&term =~ "xterm") || (&term =~ "screen")
     let g:erlangHighlightBif = 1
     let g:erlangHighLightOperators = 1
@@ -225,13 +230,17 @@ filetype plugin indent on    " required
     au BufNewFile,BufRead *.md set filetype=markdown
     au BufNewFile,BufRead *.dtl set filetype=htmldjango
     " Rainbow Parens
-    au VimEnter * RainbowParenthesesToggle
+    runtime! plugin/rainbowparentheses.vim
+    if exists(':RainbowParenthesesToggle') == 2
+        au bufenter * RainbowParenthesesToggle
+        au VimEnter * RainbowParenthesesToggle
+    endif
     au Syntax * RainbowParenthesesLoadRound
     au Syntax * RainbowParenthesesLoadSquare
     au Syntax * RainbowParenthesesLoadBraces
     " Remember everything (position, folds, etc)
-    au BufWinLeave * mkview
-    au BufWinEnter * silent loadview
+    au BufWinLeave ?* silent mkview
+    au BufWinEnter ?* silent loadview
 
 " GUI Settings
 if has("gui_running")
