@@ -1,6 +1,6 @@
 [user]
-	name = Manu Datta
-	email = manu.datta@gmail.com
+    name = Manu Datta
+    email = manu.datta@gmail.com
 
 [color]
     diff = auto
@@ -12,7 +12,7 @@
     default = matching
 
 [core]
-    editor = emacs
+    editor = vim
     pager = less -R
 
 [alias]
