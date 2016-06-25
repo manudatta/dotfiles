@@ -13,6 +13,9 @@ end
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'nvie/vim-flake8'
+Plugin 'tpope/vim-fugitive'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tomasr/molokai'
 Plugin 'tpope/vim-surround'
@@ -234,10 +237,10 @@ filetype plugin indent on    " required
     if exists(':RainbowParenthesesToggle') == 2
         au bufenter * RainbowParenthesesToggle
         au VimEnter * RainbowParenthesesToggle
+        au Syntax * RainbowParenthesesLoadRound
+        au Syntax * RainbowParenthesesLoadSquare
+        au Syntax * RainbowParenthesesLoadBraces
     endif
-    au Syntax * RainbowParenthesesLoadRound
-    au Syntax * RainbowParenthesesLoadSquare
-    au Syntax * RainbowParenthesesLoadBraces
     " Remember everything (position, folds, etc)
     au BufWinLeave ?* silent mkview
     au BufWinEnter ?* silent loadview
@@ -277,5 +280,19 @@ endif
 " Odds n Ends
 set ttymouse=xterm2 " makes it work in everything
 let g:molokai_original = 1
-filetype plugin indent on  
-au FileType python setl commentstring="#\ %s"
+filetype plugin indent on 
+" Pep-8 guidelines
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+
+au BufNewFile,BufRead *.js, *.html, *.css
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
+
