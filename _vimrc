@@ -86,7 +86,6 @@ filetype plugin indent on    " required
     "             ||+-- A backslash has no special meaning in mappings
     "             |+-- :write updates alternative file name
     "             +-- :read updates alternative file name
-    syntax on " syntax highlighting on
     let g:skip_loading_mswin=1 " Just in case :)
 
 " Newish
@@ -283,16 +282,16 @@ let g:molokai_original = 1
 filetype plugin indent on 
 " Pep-8 guidelines
 au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent 
 
 au BufNewFile,BufRead *.js, *.html, *.css
     \ set tabstop=2
     \ set softtabstop=2
     \ set shiftwidth=2
 
+syntax on " syntax highlighting on
