@@ -1,7 +1,6 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 
 #osx color terminal
 export CLICOLOR=1
@@ -155,8 +154,8 @@ parse_svn_repository_root() {
   svn info 2>/dev/null | sed -ne 's#^Repository Root: ##p'
 }
 
-export EDITOR="vim"
-export GIT_EDITOR="vim"
+export EDITOR="gvim"
+export GIT_EDITOR="gvim"
 
 # Add git and svn branch names
 export PS1="$PS1\$(parse_git_branch)\$(parse_svn_branch) "
@@ -186,13 +185,16 @@ alias clean_pycs='find . -name "*.pyc" -exec rm {} \;'
 complete -F _complete_hosts ssh
 complete -F _complete_hosts host
 export PATH=${PATH}:${HOME}/bin
-export ERL_LIBS=${HOME}/lib/erlang/rabbit_common:${HOME}/lib/erlang/amqp_client
 
-alias ek='eclipse &'
 alias xterm='xterm -font -*-fixed-medium-r-*-*-18-*-*-*-*-*-iso8859-* -geometry 70x24'
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH=${PATH}:${HOME}/bin
-export ERL_LIBS=${HOME}/lib/erlang/rabbit_common:${HOME}/lib/erlang/amqp_client
-source ~/.bash_profile
+# Load pyenv automatically by adding
+# the following to ~/.bash_profile:
+
+export PATH="/home/manu/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 echo ".bashrc loaded"

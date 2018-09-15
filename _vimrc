@@ -14,6 +14,7 @@ end
 
 " let Vundle manage Vundle, required
 Plugin 'vim-scripts/indentpython.vim'
+Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'nvie/vim-flake8'
 Plugin 'tpope/vim-fugitive'
 Plugin 'VundleVim/Vundle.vim'
@@ -22,6 +23,7 @@ Plugin 'tpope/vim-surround'
 Bundle "tpope/vim-dispatch"
 Bundle "tpope/vim-repeat"
 Bundle "tpope/vim-commentary"
+Bundle "vim-airline/vim-airline"
 Bundle "myusuf3/numbers.vim"
 Bundle "Lokaltog/powerline", {'rtp': 'powerline/bindings/vim/'}
 Bundle "kien/rainbow_parentheses.vim"
