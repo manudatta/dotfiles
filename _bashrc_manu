@@ -188,8 +188,6 @@ export PATH=${PATH}:${HOME}/bin
 
 alias xterm='xterm -font -*-fixed-medium-r-*-*-18-*-*-*-*-*-iso8859-* -geometry 70x24'
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-export PATH=${PATH}:${HOME}/bin
 # Load pyenv automatically by adding
 # the following to ~/.bash_profile:
 
@@ -197,4 +195,7 @@ export PATH="/home/manu/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-echo ".bashrc loaded"
+# add python shell goodies
+export PYTHONSTARTUP="$HOME/.pythonrc.py"
+
+echo ".bashrc_manu loaded"

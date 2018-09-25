@@ -14,6 +14,7 @@ end
 
 " let Vundle manage Vundle, required
 Plugin 'vim-scripts/indentpython.vim'
+Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'nvie/vim-flake8'
 Plugin 'tpope/vim-fugitive'
@@ -256,11 +257,7 @@ if has("gui_running")
     "              |+-- use simple dialogs rather than pop-ups
     "              +-- use GUI tabs, not console style tabs
     set mousehide " hide the mouse cursor when typing
-    map <F8> <ESC>:set guifont=Consolas:h8<CR>
-    map <F9> <ESC>:set guifont=Consolas:h10<CR>
-    map <F10> <ESC>:set guifont=Consolas:h12<CR>
-    map <F11> <ESC>:set guifont=Consolas:h16<CR>
-    map <F12> <ESC>:set guifont=Consolas:h20<CR>
+    "map <F12> <ESC>:set guifont=Consolas:h20<CR>
 endif
 
 " Term Settings
@@ -297,3 +294,6 @@ au BufNewFile,BufRead *.js, *.html, *.css
     \ set shiftwidth=2
 
 syntax on " syntax highlighting on
+
+map <C-n> :NERDTreeToggle<CR>
+set tags=tags
