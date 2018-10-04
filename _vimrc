@@ -20,6 +20,9 @@ Plugin 'nvie/vim-flake8'
 Plugin 'tpope/vim-fugitive'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tomasr/molokai'
+Plugin 'koirand/tokyo-metro.vim'
+Plugin 'BrainDeath0/Hypsteria'
+Plugin 'jceb/vim-orgmode'
 Plugin 'tpope/vim-surround'
 Bundle "tpope/vim-dispatch"
 Bundle "tpope/vim-repeat"
@@ -247,10 +250,12 @@ filetype plugin indent on    " required
     au BufWinLeave ?* silent mkview
     au BufWinEnter ?* silent loadview
 
+set guifont=SF 
 " GUI Settings
 if has("gui_running")
     " Basics
     colorscheme molokai
+    set guifont=SF 
     "set guifont=Consolas:h10 " My favorite font
     "set guioptions=ce
     "              ||
@@ -264,7 +269,6 @@ endif
 if s:colorful_term
     "256 color --
     let &t_Co=256
-    colorscheme molokai
     " restore screen after quitting
     if has("terminfo")
         let &t_Sf="\ESC[3%p1%dm"
@@ -297,3 +301,4 @@ syntax on " syntax highlighting on
 
 map <C-n> :NERDTreeToggle<CR>
 set tags=tags
+let g:NERDTreeHijackNetrw=0
