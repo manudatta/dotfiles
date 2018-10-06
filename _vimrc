@@ -13,17 +13,26 @@ end
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'nvie/vim-flake8'
 Plugin 'tpope/vim-fugitive'
-Plugin 'VundleVim/Vundle.vim'
 Plugin 'tomasr/molokai'
 Plugin 'koirand/tokyo-metro.vim'
 Plugin 'BrainDeath0/Hypsteria'
 Plugin 'jceb/vim-orgmode'
-Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-surround' 
+Plugin 'airblade/vim-gitgutter'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'itchyny/lightline.vim'
+Plugin 'junegunn/fzf.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-eunuch'
+Plugin 'w0rp/ale'
+Plugin 'jpalardy/vim-slime'
 Bundle "tpope/vim-dispatch"
 Bundle "tpope/vim-repeat"
 Bundle "tpope/vim-commentary"
@@ -32,7 +41,8 @@ Bundle "myusuf3/numbers.vim"
 Bundle "Lokaltog/powerline", {'rtp': 'powerline/bindings/vim/'}
 Bundle "kien/rainbow_parentheses.vim"
 Bundle "vim-scripts/slimv.vim"
-" The following are examples of different formats supported.
+Bundle 'vim-scripts/Conque-Shell' 
+:" The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 "Plugin 'tpope/vim-fugitive'

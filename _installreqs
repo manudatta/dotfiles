@@ -1,0 +1,2 @@
+sudo apt-get install wget tar make perl openssl gcc g++ libncurses-dev libncurses5-dev unixodbc unixodbc-dev libssl-dev libwxgtk3.0-dev xsltproc fop libxml2-utils
+

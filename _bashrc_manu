@@ -195,7 +195,14 @@ export PATH="/home/manu/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+<<<<<<< Updated upstream
 # add python shell goodies
 export PYTHONSTARTUP="$HOME/.pythonrc.py"
 
 echo ".bashrc_manu loaded"
+=======
+echo ".bashrc loaded"
+if [  -f $HOME/.bashrc_local ]; then
+    . $HOME/.bashrc_local
+fi
+>>>>>>> Stashed changes
