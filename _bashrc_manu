@@ -197,5 +197,6 @@ eval "$(pyenv virtualenv-init -)"
 
 # add python shell goodies
 export PYTHONSTARTUP="$HOME/.pythonrc.py"
-
+alias gitaliaslist="git config --get-regexp alias"
+alias djangomodellist="python manage.py dumpdata  | jq -r '.[] | .model' | uniq"
 echo ".bashrc_manu loaded"

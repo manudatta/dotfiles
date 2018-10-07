@@ -301,4 +301,4 @@ syntax on " syntax highlighting on
 
 map <C-n> :NERDTreeToggle<CR>
 set tags=tags
-let g:NERDTreeHijackNetrw=0
+let g:nerdtree_tabs_open_on_gui_startup=0
