@@ -41,7 +41,8 @@ Bundle "myusuf3/numbers.vim"
 Bundle "Lokaltog/powerline", {'rtp': 'powerline/bindings/vim/'}
 Bundle "kien/rainbow_parentheses.vim"
 Bundle "vim-scripts/slimv.vim"
-Bundle 'vim-scripts/Conque-Shell' 
+Bundle 'vim-scripts/Conque-Shell'
+Bundle "majutsushi/tagbar"
 :" The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
