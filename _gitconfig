@@ -1,6 +1,6 @@
 [user]
-    name = Manu Datta
-    email = manu.datta@gmail.com
+	name = Manu Datta
+	email = manu.datta@gmail.com
 
 [color]
     diff = auto
@@ -28,3 +28,8 @@
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     ls = ls-files
 
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process

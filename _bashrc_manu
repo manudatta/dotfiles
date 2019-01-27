@@ -199,6 +199,7 @@ eval "$(pyenv virtualenv-init -)"
 export PYTHONSTARTUP="$HOME/.pythonrc.py"
 alias gitaliaslist="git config --get-regexp alias"
 alias djangomodellist="python manage.py dumpdata  | jq -r '.[] | .model' | uniq"
+alias veact=". .ve*/bin/activate"
 echo ".bashrc loaded"
 if [  -f $HOME/.bashrc_local ]; then
     . $HOME/.bashrc_local

@@ -40,7 +40,6 @@ class Completer(object):
         readline.write_history_file(self.HISTFILE)
 
 
-c = Completer()
 
 WELCOME = ''
 
@@ -182,10 +181,18 @@ class EditableBufferInteractiveConsole(InteractiveConsole):
 
 # clean up namespace
 del sys
-
-c = EditableBufferInteractiveConsole(locals=locals())
-c.interact(banner=WELCOME)
-
+try:
+    _ = __IPYTHON__ 
+    print(WELCOME)
+    import IPython
+    ip=IPython.get_ipython()
+    c = ip.__dict__['Completer'] 
+    print(">> debug msg from $HOME/.pythonrc.py <<")
+except NameError:
+    c = Completer()
+    c = EditableBufferInteractiveConsole(locals=locals())
+    c.interact(banner=WELCOME)
+    
 # Exit the Python shell on exiting the InteractiveConsole
 import sys
 sys.exit()
