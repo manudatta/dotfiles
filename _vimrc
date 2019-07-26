@@ -33,6 +33,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-eunuch'
 Plugin 'w0rp/ale'
 Plugin 'jpalardy/vim-slime'
+Plugin 'stephpy/vim-yaml'
 Bundle "tpope/vim-dispatch"
 Bundle "tpope/vim-repeat"
 Bundle "tpope/vim-commentary"

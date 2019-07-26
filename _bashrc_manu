@@ -191,16 +191,16 @@ alias xterm='xterm -font -*-fixed-medium-r-*-*-18-*-*-*-*-*-iso8859-* -geometry 
 # Load pyenv automatically by adding
 # the following to ~/.bash_profile:
 
-export PATH="/home/manu/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 # add python shell goodies
 export PYTHONSTARTUP="$HOME/.pythonrc.py"
 alias gitaliaslist="git config --get-regexp alias"
 alias djangomodellist="python manage.py dumpdata  | jq -r '.[] | .model' | uniq"
 alias veact=". .ve*/bin/activate"
+alias tailf="tail -f "
 echo ".bashrc loaded"
 if [  -f $HOME/.bashrc_local ]; then
     . $HOME/.bashrc_local
 fi
+alias genschema="pipenv run manage.py graphql_schema_nodb --schema hotspring.schema.schema --out ./schema.json"
+alias mirrorphone="scrcpy -b2M -m800"
