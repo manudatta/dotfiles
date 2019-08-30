@@ -198,9 +198,10 @@ alias gitaliaslist="git config --get-regexp alias"
 alias djangomodellist="python manage.py dumpdata  | jq -r '.[] | .model' | uniq"
 alias veact=". .ve*/bin/activate"
 alias tailf="tail -f "
-echo ".bashrc loaded"
+echo ".bashrc_manu loaded"
 if [  -f $HOME/.bashrc_local ]; then
     . $HOME/.bashrc_local
+    echo ".bashrc_local loaded"
 fi
-alias genschema="pipenv run manage.py graphql_schema_nodb --schema hotspring.schema.schema --out ./schema.json"
+alias genschema="yarn run gql-schema && git add schema.json"
 alias mirrorphone="scrcpy -b2M -m800"

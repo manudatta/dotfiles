@@ -33,7 +33,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-eunuch'
 Plugin 'w0rp/ale'
 Plugin 'jpalardy/vim-slime'
-Plugin 'stephpy/vim-yaml'
+Bundle 'chase/vim-ansible-yaml'
 Bundle "tpope/vim-dispatch"
 Bundle "tpope/vim-repeat"
 Bundle "tpope/vim-commentary"
@@ -309,6 +309,11 @@ au BufNewFile,BufRead *.js, *.html, *.css
     \ set softtabstop=2
     \ set shiftwidth=2
 
+
+au! BufNewFile,BufReadPost *.yaml, *yml
+    \ set filetype=yaml 
+
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 syntax on " syntax highlighting on
 
 map <C-n> :NERDTreeToggle<CR>
