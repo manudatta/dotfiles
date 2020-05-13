@@ -18,6 +18,7 @@ Plugin 'vim-scripts/indentpython.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'nvie/vim-flake8'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tomasr/molokai'
 Plugin 'koirand/tokyo-metro.vim'
@@ -42,7 +43,7 @@ Bundle "myusuf3/numbers.vim"
 Bundle "Lokaltog/powerline", {'rtp': 'powerline/bindings/vim/'}
 Bundle "kien/rainbow_parentheses.vim"
 Bundle "vim-scripts/slimv.vim"
-Bundle 'vim-scripts/Conque-Shell'
+Bundle 'eternnoir/Conque-Shell'
 Bundle "majutsushi/tagbar"
 :" The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -264,10 +265,11 @@ filetype plugin indent on    " required
 
 set guifont=SF 
 " GUI Settings
+colorscheme hypsteria
 if has("gui_running")
     " Basics
     colorscheme molokai
-    set guifont=SF 
+    set guifont=SF
     "set guifont=Consolas:h10 " My favorite font
     "set guioptions=ce
     "              ||
@@ -318,4 +320,12 @@ syntax on " syntax highlighting on
 
 map <C-n> :NERDTreeToggle<CR>
 set tags=tags
+set cursorline
 let g:nerdtree_tabs_open_on_gui_startup=0
+
+" Short cuts for ConqueTerm shell
+map <leader>sh :set splitbelow<CR>:new<CR>:resize 10<CR>:ConqueTerm bash<CR>
+map <leader>pp :set splitbelow<CR>:new<CR>:resize 10<CR>:ConqueTerm python3<CR>
+map <leader>ss :set splitbelow<CR>:new<CR>:resize 10<CR>:ConqueTerm scala<CR>
+map <leader>rr :set splitbelow<CR>:new<CR>:resize 10<CR>:ConqueTerm irb<CR>
+set showcmd

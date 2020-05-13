@@ -205,3 +205,12 @@ if [  -f $HOME/.bashrc_local ]; then
 fi
 alias genschema="yarn run gql-schema && git add schema.json"
 alias mirrorphone="scrcpy -b2M -m800"
+alias grepvnode="grep -R --exclude-dir=node_modules "
+# DOCKER
+alias docker-stop-all-containers='docker stop $(docker ps -a -q)'
+alias docker-rm-all-containers='docker rm $(docker ps -a -q)'
+# GITLAB
+export GITLAB_CICD_KEY="mk53LZnmtN6pXxxRfbmM"
+alias gitllab-runner-local-build="gitlab-runner exec shell build"
+alias gitllab-runner-local="gitlab-runner exec shell"
+conda deactivate
