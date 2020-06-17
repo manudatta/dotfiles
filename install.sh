@@ -34,4 +34,5 @@ else
     do
         link_file $i
     done
-fi
+fi 
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim

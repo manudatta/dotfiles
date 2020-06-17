@@ -262,12 +262,12 @@ filetype plugin indent on    " required
     au BufWinLeave ?* silent mkview
     au BufWinEnter ?* silent loadview
 
-set guifont=SF 
+set guifont=SF\ Mono\ Medium\ 10
 " GUI Settings
 if has("gui_running")
     " Basics
     colorscheme molokai
-    set guifont=SF 
+    set guifont=SF\ Mono\ Medium\ 10
     "set guifont=Consolas:h10 " My favorite font
     "set guioptions=ce
     "              ||
