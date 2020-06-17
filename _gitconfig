@@ -1,6 +1,6 @@
 [user]
-	name = Manu Datta
-	email = manu.datta@gmail.com
+    name = Manu Datta
+    email = manu.datta@gmail.com
 
 [color]
     diff = auto
@@ -9,10 +9,10 @@
     ui = auto
 
 [push]
-    default = matching
+	default = current
 
 [core]
-    editor = vim
+	editor = vi -f
     pager = less -R
 
 [alias]
@@ -27,9 +27,10 @@
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     ls = ls-files
+    squash-all = "!f(){ git reset $(git commit-tree HEAD^{tree} -m \"${1:-Squashed all commits in one}\");};f"
 
 [filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process

@@ -18,6 +18,7 @@ Plugin 'vim-scripts/indentpython.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'nvie/vim-flake8'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tomasr/molokai'
 Plugin 'koirand/tokyo-metro.vim'
@@ -33,7 +34,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-eunuch'
 Plugin 'w0rp/ale'
 Plugin 'jpalardy/vim-slime'
-Plugin 'stephpy/vim-yaml'
+Bundle 'chase/vim-ansible-yaml'
 Bundle "tpope/vim-dispatch"
 Bundle "tpope/vim-repeat"
 Bundle "tpope/vim-commentary"
@@ -42,7 +43,7 @@ Bundle "myusuf3/numbers.vim"
 Bundle "Lokaltog/powerline", {'rtp': 'powerline/bindings/vim/'}
 Bundle "kien/rainbow_parentheses.vim"
 Bundle "vim-scripts/slimv.vim"
-Bundle 'vim-scripts/Conque-Shell'
+Bundle 'eternnoir/Conque-Shell'
 Bundle "majutsushi/tagbar"
 :" The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -264,6 +265,7 @@ filetype plugin indent on    " required
 
 set guifont=SF\ Mono\ Medium\ 10
 " GUI Settings
+colorscheme hypsteria
 if has("gui_running")
     " Basics
     colorscheme molokai
@@ -309,8 +311,21 @@ au BufNewFile,BufRead *.js, *.html, *.css
     \ set softtabstop=2
     \ set shiftwidth=2
 
+
+au! BufNewFile,BufReadPost *.yaml, *yml
+    \ set filetype=yaml 
+
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 syntax on " syntax highlighting on
 
 map <C-n> :NERDTreeToggle<CR>
 set tags=tags
+set cursorline
 let g:nerdtree_tabs_open_on_gui_startup=0
+
+" Short cuts for ConqueTerm shell
+map <leader>sh :set splitbelow<CR>:new<CR>:resize 10<CR>:ConqueTerm bash<CR>
+map <leader>pp :set splitbelow<CR>:new<CR>:resize 10<CR>:ConqueTerm python3<CR>
+map <leader>ss :set splitbelow<CR>:new<CR>:resize 10<CR>:ConqueTerm scala<CR>
+map <leader>rr :set splitbelow<CR>:new<CR>:resize 10<CR>:ConqueTerm irb<CR>
+set showcmd

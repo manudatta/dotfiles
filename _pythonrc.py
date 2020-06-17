@@ -182,12 +182,11 @@ class EditableBufferInteractiveConsole(InteractiveConsole):
 # clean up namespace
 del sys
 try:
-    _ = __IPYTHON__ 
+    _ = __IPYTHON__
     print(WELCOME)
     import IPython
     ip=IPython.get_ipython()
     c = ip.__dict__['Completer'] 
-    print(">> debug msg from $HOME/.pythonrc.py <<")
 except NameError:
     c = Completer()
     c = EditableBufferInteractiveConsole(locals=locals())
