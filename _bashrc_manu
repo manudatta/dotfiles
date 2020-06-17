@@ -194,7 +194,6 @@ alias xterm='xterm -font -*-fixed-medium-r-*-*-18-*-*-*-*-*-iso8859-* -geometry 
 
 # add python shell goodies
 export PYTHONSTARTUP="$HOME/.pythonrc.py"
-alias gitaliaslist="git config --get-regexp alias"
 alias djangomodellist="python manage.py dumpdata  | jq -r '.[] | .model' | uniq"
 alias veact=". .ve*/bin/activate"
 alias tailf="tail -f "
@@ -210,7 +209,21 @@ alias grepvnode="grep -R --exclude-dir=node_modules "
 alias docker-stop-all-containers='docker stop $(docker ps -a -q)'
 alias docker-rm-all-containers='docker rm $(docker ps -a -q)'
 # GITLAB
+alias gitaliaslist="git config --get-regexp alias"
 export GITLAB_CICD_KEY="mk53LZnmtN6pXxxRfbmM"
 alias gitllab-runner-local-build="gitlab-runner exec shell build"
 alias gitllab-runner-local="gitlab-runner exec shell"
 conda deactivate
+# kubernets
+alias k='kubectl '
+alias ka='kubectl apply -f'
+alias kd='kubectl delete -f'
+alias ke='kubectl exec'
+alias minikube-env='eval $(minikube docker-env)'
+fh() { print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//') }
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}

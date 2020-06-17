@@ -7,6 +7,7 @@ if s:running_windows
   call vundle#begin('$USERPROFILE/vimfiles/bundle/')
 else
   set rtp+=~/.vim/bundle/Vundle.vim
+  set rtp+=/usr/local/opt/fzf
   call vundle#begin()
 end
 " alternatively, pass a path where Vundle should install plugins
@@ -28,12 +29,13 @@ Plugin 'tpope/vim-surround'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'itchyny/lightline.vim'
-Plugin 'junegunn/fzf.vim'
+Plugin 'junegunn/fzf.vim' 
 Plugin 'mattn/emmet-vim'
-Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-eunuch'
 Plugin 'w0rp/ale'
 Plugin 'jpalardy/vim-slime'
+Bundle 'jimenezrick/vimerl'
+Bundle 'edkolev/erlang-motions.vim'
 Bundle 'chase/vim-ansible-yaml'
 Bundle "tpope/vim-dispatch"
 Bundle "tpope/vim-repeat"
@@ -86,6 +88,12 @@ filetype plugin indent on    " required
 
 
 " Startup
+" map the leader to space
+" make sure leader doesn't timeout like other keys
+    map <Space> <Leader>
+    nnoremap <silent> <Leader> :<C-U>set timeoutlen=99999 ttimeoutlen=99999<CR>:call feedkeys('<Leader>')<CR>
+    " Reset timeoutline to normal soon afterwards
+    autocmd CursorMoved * set timeoutlen=2000 ttimeoutlen=0
     let s:colorful_term = (&term =~ "xterm") || (&term =~ "screen")
     let g:erlangHighlightBif = 1
     let g:erlangHighLightOperators = 1
@@ -285,7 +293,7 @@ if s:colorful_term
     let &t_Co=256
     " restore screen after quitting
     if has("terminfo")
-        let &t_Sf="\ESC[3%p1%dm"
+       let &t_Sf="\ESC[3%p1%dm"
         let &t_Sb="\ESC[4%p1%dm"
     else
         let &t_Sf="\ESC[3%dm"
@@ -297,6 +305,9 @@ endif
 set ttymouse=xterm2 " makes it work in everything
 let g:molokai_original = 1
 filetype plugin indent on 
+" erlang format settings
+autocmd BufRead,BufNewFile *.erl,*.es.*.hrl,*.yaws,*.xrl set expandtab
+au BufNewFile,BufRead *.erl,*.es,*.hrl,*.yaws,*.xrl setf erlang
 " Pep-8 guidelines
 au BufNewFile,BufRead *.py
     \ set tabstop=4 |
@@ -329,3 +340,10 @@ map <leader>pp :set splitbelow<CR>:new<CR>:resize 10<CR>:ConqueTerm python3<CR>
 map <leader>ss :set splitbelow<CR>:new<CR>:resize 10<CR>:ConqueTerm scala<CR>
 map <leader>rr :set splitbelow<CR>:new<CR>:resize 10<CR>:ConqueTerm irb<CR>
 set showcmd
+" default templates for different files
+" Below line can do it for all file extensions if you don't want to be
+" explicit
+" au BufNewFile * :silent! exec ":0r ".$VIMHOME."templates/".&ft
+au BufNewFile *.html 0r ~/.vim/html5.html | let IndentStyle = "html"
+" fzf related 
+nnoremap <C-p> :<C-u>FZF<CR>
