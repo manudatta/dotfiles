@@ -35,3 +35,6 @@ else
         link_file $i
     done
 fi
+
+mkdir .vim
+mkdir -p .vim/{backup,bundle,temp,view,templates}
