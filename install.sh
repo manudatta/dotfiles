@@ -35,3 +35,8 @@ else
         link_file $i
     done
 fi
+if [! -d "$HOME/.vim"]; then
+    mkdir .vim
+    mkdir -p .vim/{backup,bundle,temp,view,templates}
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+if
