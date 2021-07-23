@@ -1,6 +1,7 @@
 [user]
     name = Manu Datta
     email = manu.datta@gmail.com
+    signingkey = E9F2D8A7DA33FE38
 
 [color]
     diff = auto
@@ -9,11 +10,12 @@
     ui = auto
 
 [push]
-	default = current
+    default = current
 
 [core]
-	editor = vi -f
+    editor = vi -f
     pager = less -R
+	excludesfile = /home/manu/.gitignore
 
 [alias]
     diverges = !bash -c 'diff -u <(git rev-list --first-parent "${1}") <(git rev-list --first-parent "${2:-HEAD}") | sed -ne \"s/^ //p\" | head -1' -
@@ -34,3 +36,15 @@
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
+[diff]
+    tool = meld
+[difftool]
+    prompt = false
+[difftool "meld"]
+    cmd = meld "$LOCAL" "$REMOTE"
+[merge]
+    tool = meld
+[mergetool "meld"]
+    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+[pull]
+	rebase = true

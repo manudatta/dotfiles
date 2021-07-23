@@ -47,7 +47,7 @@ Bundle "kien/rainbow_parentheses.vim"
 Bundle "vim-scripts/slimv.vim"
 Bundle 'eternnoir/Conque-Shell'
 Bundle "majutsushi/tagbar"
-:" The following are examples of different formats supported.
+Bundle "aserebryakov/vim-todo-lists"
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 "Plugin 'tpope/vim-fugitive'
@@ -271,13 +271,13 @@ filetype plugin indent on    " required
     au BufWinLeave ?* silent mkview
     au BufWinEnter ?* silent loadview
 
-set guifont=SF\ Mono\ Medium\ 10
+set guifont=SF\ Mono\ Medium\ 16
 " GUI Settings
 colorscheme hypsteria
 if has("gui_running")
     " Basics
     colorscheme molokai
-    set guifont=SF\ Mono\ Medium\ 10
+    set guifont=SF\ Mono\ Medium\ 16
     "set guifont=Consolas:h10 " My favorite font
     "set guioptions=ce
     "              ||
@@ -331,7 +331,6 @@ syntax on " syntax highlighting on
 
 map <C-n> :NERDTreeToggle<CR>
 set tags=tags
-set cursorline
 let g:nerdtree_tabs_open_on_gui_startup=0
 
 " Short cuts for ConqueTerm shell
@@ -347,3 +346,4 @@ set showcmd
 au BufNewFile *.html 0r ~/.vim/html5.html | let IndentStyle = "html"
 " fzf related 
 nnoremap <C-p> :<C-u>FZF<CR>
+set spell spelllang=en_us
