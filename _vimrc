@@ -34,20 +34,21 @@ Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-eunuch'
 Plugin 'w0rp/ale'
 Plugin 'jpalardy/vim-slime'
-Bundle 'jimenezrick/vimerl'
-Bundle 'edkolev/erlang-motions.vim'
-Bundle 'chase/vim-ansible-yaml'
-Bundle "tpope/vim-dispatch"
-Bundle "tpope/vim-repeat"
-Bundle "tpope/vim-commentary"
-Bundle "vim-airline/vim-airline"
-Bundle "myusuf3/numbers.vim"
-Bundle "Lokaltog/powerline", {'rtp': 'powerline/bindings/vim/'}
-Bundle "kien/rainbow_parentheses.vim"
-Bundle "vim-scripts/slimv.vim"
-Bundle 'eternnoir/Conque-Shell'
-Bundle "majutsushi/tagbar"
-Bundle "aserebryakov/vim-todo-lists"
+Plugin 'vimwiki/vimwiki'
+Plugin 'jimenezrick/vimerl'
+Plugin 'edkolev/erlang-motions.vim'
+Plugin 'chase/vim-ansible-yaml'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-commentary'
+Plugin 'vim-airline/vim-airline'
+Plugin 'myusuf3/numbers.vim'
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'vim-scripts/slimv.vim'
+Plugin 'eternnoir/Conque-Shell'
+Plugin 'majutsushi/tagbar'
+Plugin 'aserebryakov/vim-todo-lists'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 "Plugin 'tpope/vim-fugitive'
@@ -327,6 +328,7 @@ au! BufNewFile,BufReadPost *.yaml, *yml
     \ set filetype=yaml 
 
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType make setlocal noexpandtab shiftwidth=8 softtabstop=0
 syntax on " syntax highlighting on
 
 map <C-n> :NERDTreeToggle<CR>
